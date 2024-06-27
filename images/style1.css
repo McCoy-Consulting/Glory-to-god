@@ -1,0 +1,1742 @@
+/* ----------------------------------------------------
+
+   AUTHOR           :  	J.E. McCoy
+   LAST DATE MOD    :   September 9, 2015
+
+/* HTML 201 Project: 9/15 - 
+Attempt at replicating the W3Schools site using modified W3 code and combining 
+it into a working document with the intent of emulating the effects of the 
+erroneous display in IE 7 mode. this style sheet includes elements from all 
+three associated style sheets (browserref.css, W3.css and stdtheme.css also some 
+modified elements from bootstrap.css).  Modifications are primarily in the areas
+of functionality to in order to utilize this material offline.
+Topnav/header section, specifically the topnav menu components were heavily 
+redesigned.  Other modifications include the way box-shadows are used, 
+transition times, content control and color schemes.
+------------------------------------------------------- */
+
+/* ----------------------------------------------------
+   GLOBAL ELEMENTS
+------------------------------------------------------- */
+
+
+/*Global*/
+* {
+	box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	
+}
+
+/* ----------------------------------------------------
+   HTML ELEMENTS
+------------------------------------------------------- */
+
+
+html{
+	-ms-text-size-adjust: 100%; 
+	-webkit-text-size-adjust: 100%;
+	-o-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	line-height: 1.5; 
+	font-family: Verdana,sans-serif; 
+	font-size: 15px;
+}
+body {
+	line-height: 1.5; 
+	font-family: Verdana,sans-serif; 
+	font-size: 16px;
+	background-color: #ffffff; 
+	text-align:center; 
+	margin:5px; 
+}
+h1 {
+	font-size: 36px;
+	margin: 10px 0px; 
+	font-family: "Segoe UI",Arial,sans-serif; 
+	font-weight: 400;
+}
+h2 {
+	font-size: 30px;
+	color: #8ac007;
+	margin: 10px 0px; 
+	font-family: "Segoe UI",Arial,sans-serif; 
+	font-weight: 600;
+}
+h3 {
+	font-size: 24px;
+	margin: 10px 0px; 
+	font-family: "Segoe UI",Arial,sans-serif; 
+	font-weight: 400;
+}
+h4 {
+	font-size: 20px;
+	margin: 5px 0px; 
+	font-family: "Segoe UI",Arial,sans-serif; 
+	font-weight: 400;
+}
+h5 {
+	font-size: 18px;
+	margin: 10px 0px; 
+	font-family: "Segoe UI",Arial,sans-serif; 
+	font-weight: 400;
+}
+h6 {
+	font-size: 16px;
+	margin: 10px 0px; 
+	font-family: "Segoe UI",Arial,sans-serif; 
+	font-weight: 400;
+}
+h1 a {
+	font-weight: inherit;
+}
+h2 a {
+	font-weight: inherit;
+}
+h3 a {
+	font-weight: inherit;
+}
+h4 a {
+	font-weight: inherit;
+}
+h5 a {
+	font-weight: inherit;
+}
+h6 a {
+	font-weight: inherit;
+}
+hr {
+	border-width: 4px 0px 0px; 
+	border-style: solid none none; 
+	border-color: rgb(95, 95, 95) currentColor currentColor; 
+	margin: 20px 25px; 
+	height: 0px;
+	box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.3), 0px 8px 24px 0px rgba(0,0,0,0.25)
+}
+img {
+	margin-bottom: -5px;
+}
+
+a {
+	color: inherit;
+}
+a:hover { 
+	background: inherit; 
+	color: rgb(138, 192, 007);
+}
+blockquote  {
+	text-align: justify;
+}
+.blockquote {
+	margin: 0px; 
+	padding-left: 16px; 
+	font-style: italic; 
+	border-left-color: rgb(221, 221, 221); 
+	border-left-width: 5px; 
+	border-left-style: solid;
+}
+
+/* ----------------------------------------------------
+   HEADER
+------------------------------------------------------- */
+
+
+#header {
+	position: fixed;
+	width: 100%;
+	height: 60px;
+	margin-left: -15px; 
+	background: #ffffff;
+	margin-top: -10px;
+	padding-top:15px;
+	z-index: 10;
+}
+.slogan {
+	position: absolute;
+	top: 25px;
+	z-index: 6;
+}
+.topnav  {
+	margin-top: -5px;
+	background-color: rgb(255, 255, 255);
+	z-index: 9;
+}
+.topnav a {
+	padding: 10px 14px 9px 13px!important; 
+	text-decoration: none; 
+	border-bottom-color: currentColor; 
+	border-bottom-width: medium; 
+	border-bottom-style: none; 
+	background-color: rgba(95, 95, 95, .2);
+	display: inline-block;
+	transition: background-color 1.0s ease, color 1.0s ease; 
+	-webkit-transition: background-color 1.0s ease, color 1.0s ease; 
+	-moz-transition: background-color 1.0s ease, color 1.0s ease; 
+	-o-transition: background-color 1.0s ease, color 1.0s ease;
+}
+.topnav a:hover {
+	color: rgb(138, 192, 007); 
+	border-bottom-color: currentColor; 
+	border-bottom-width: medium; 
+	border-bottom-style: none; 
+	background-color: rgba(235, 235, 235, .5);
+	box-shadow: 0px 8px 12px 0px rgba(138,192,007,0.4), 0px 10px 30px 0px rgba(138,192,007,0.3) !important;
+}
+.topnav a.active {
+	color: rgba(95, 95, 95, .3);
+}
+
+/*Secondary Topnav Settings (overlay)*/
+.topnav a {
+	padding: 0px 8px; 
+	border-bottom-color: transparent; 
+	border-bottom-width: 0px; 
+	border-bottom-style: solid; 
+	transition: all 1.0s ease; 
+	-webkit-transition: all 1.0s ease; 
+	-moz-transition: all 1.0s ease; 
+	-o-transition: all 1.0s ease;
+	box-shadow: 0px 12px 18px 0px rgba(0,0,0,0.30), 0px 15px 45px 0px rgba(0,0,0,0.25) !important;
+}
+
+/* ----------------------------------------------------
+   SUBMENU
+------------------------------------------------------- */
+
+/*start of new menu
+Replaced the original sidemenu with a new contents section at the beginning of the page
+*/
+#submenu h2 {
+	padding-top: 0;
+	padding-left: 50px; 
+	font-size: 26px;
+}
+#submenu a {
+	padding: 2px 2px 2px 50px; 
+	font-size: 17px; 
+	text-decoration: none; 
+	display: list-item;
+}
+#submenu a:hover {
+	color: rgb(138, 192, 007); 
+	background-color: current color;
+}
+#submenu a.active {
+	color: rgb(0, 0, 0); 
+	background-color: rgb(221, 221, 221);		
+}
+#submenu {
+	width: 100%; 
+	overflow: hidden;
+	background: #eee;
+}
+
+/* ----------------------------------------------------
+   BODY
+------------------------------------------------------- */
+
+
+#main {
+}
+.wrapper { 
+	position: absolute;
+	background-color: #ffffff; 
+	margin-left: 5px; 
+	padding-left: 10px;
+	padding-right: 15px;
+	width:95%; 
+	text-align: left;
+	padding-top:100px;
+	z-index: 8;
+} 
+
+/* ----------------------------------------------------
+   TABLE ELEMENTS
+------------------------------------------------------- */
+
+table {
+	width: 100%; 
+	display: table; 
+	border-collapse: collapse; 
+	border-spacing: 0;
+	border: currentColor;
+	box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.16), 0px 4px 12px 0px rgba(0,0,0,0.12) !important;
+}
+table.lamp {
+	margin: 16px 0px;
+}
+table.table-all {
+	margin: 16px 0px;
+}
+th {
+	border: currentColor;
+}
+td {
+	border: currentColor;
+}
+.table-all td {
+	padding: 8px;
+}
+.table-all th {
+	padding: 8px;
+}
+.table-all th:first-child {
+	padding: 8px;
+}
+.table-all td:first-child {
+	padding: 8px;
+}
+.notranslate tr:hover td{
+background-color: rgba(138,192,007,0.1);
+} 
+table.browserref {
+	width: 100%; 
+	border-collapse: collapse;
+}
+table.browserref tr:nth-child(2n) {
+	background-color: rgb(241, 241, 241);
+}
+table.browserref tr:nth-child(2n+1) {
+	background-color: rgb(255, 255, 255);
+}
+table.browserref tr.fixzebra {
+	background-color: rgb(241, 241, 241);
+}
+table.browserref th {
+	background-position: center; 
+	padding: 11px 5px; 
+	border: 1px solid rgb(212, 212, 212); 
+	height: 32px; 
+	color: rgb(85, 85, 85); 
+	font-weight: normal; 
+	vertical-align: middle; 
+	background-repeat: no-repeat; 
+	background-color: rgb(255, 255, 255);
+}
+table.browserref td {
+	padding: 7px 5px; 
+	border: 1px solid rgb(212, 212, 212); 
+	text-align: center; 
+	vertical-align: top;
+}
+.table-all {
+	border: 1px solid rgb(204, 204, 204);
+}
+.table-noline th{
+	border-bottom: 1px solid rgb(204, 204, 204);
+}
+.bordered tr {
+	border-bottom-color: rgb(208, 208, 208); 
+	border-bottom-width: 1px; 
+	border-bottom-style: solid;
+}
+.table-all tr {
+	border-bottom-color: rgb(208, 208, 208); 
+	border-bottom-width: 1px; 
+	border-bottom-style: solid;
+}
+.striped tbody tr:nth-child(2n) {
+	background-color: rgb(242, 242, 242);
+}
+.table-all tr:nth-child(2n+1) {
+	background-color: rgb(255, 255, 255);
+}
+.table-all tr:nth-child(2n) {
+	background-color: rgb(242, 242, 242);
+}
+.table td {
+	padding: 6px 8px; 
+	text-align: left; 
+	vertical-align: top; 
+	display: table-cell;
+}
+.table th {
+	padding: 6px 8px; 
+	text-align: left; 
+	vertical-align: top; 
+	display: table-cell;
+}
+.table-all td {
+	padding: 6px 8px; 
+	text-align: left; 
+	vertical-align: top; 
+	display: table-cell;
+}
+.table-all th {
+	padding: 6px 8px; 
+	text-align: left; 
+	vertical-align: top; 
+	display: table-cell;
+}
+.table-noline td {
+	padding: 6px 8px; 
+	text-align: left; 
+	vertical-align: top; 
+	display: table-cell;
+}
+.table-noline th {
+	padding: 6px 8px; 
+	text-align: left; 
+	vertical-align: top; 
+	display: table-cell;
+}
+.table th:first-child {
+	padding-left: 16px;
+}
+.table td:first-child {
+	padding-left: 16px;
+}
+.table-all th:first-child {
+	padding-left: 16px;
+}
+.table-all td:first-child {
+	padding-left: 16px;
+}
+.lamp {
+	border: 1px solid rgb(221, 221, 221);
+}
+.lamp th {
+	padding: 10px; 
+	box-sizing: content-box;
+}
+
+/* ----------------------------------------------------
+   SECTION ELEMENTS
+------------------------------------------------------- */
+
+
+div.chapter {
+	margin: 0px; 
+	padding: 0px; 
+	width: auto; 
+	overflow: hidden; 
+	font-size: 20px;
+}
+div.nav {
+	margin: 0px; 
+	padding: 0px; 
+	width: auto; 
+	overflow: hidden; 
+	font-size: 20px;
+}
+a.chapter:link {
+	color: rgb(138, 192, 007); 
+	text-decoration: none; 
+	background-color: transparent;
+}
+a.chapter:visited {
+	color: rgb(138, 192, 007); 
+	text-decoration: none; 
+	background-color: transparent;
+}
+a.chapter:hover {
+	color: rgb(138, 192, 007); 
+	text-decoration: underline; 
+	background-color: transparent;
+}
+a.chapter:active {
+	color: rgb(138, 192, 007); 
+	text-decoration: underline; 
+	background-color: transparent;
+}
+div.chapter div.prev {
+	width: 45%; 
+	text-align: left; 
+	overflow: hidden; 
+	float: left; 
+	white-space: nowrap;
+}
+div.chapter div.next {
+	width: 35%; 
+	text-align: right; 
+	overflow: hidden; 
+	float: right; 
+	white-space: nowrap;
+}
+div.chapter div.menu {
+	width: auto; 
+	text-align: left; 
+	overflow: hidden; 
+	white-space: nowrap;
+}
+
+/* ----------------------------------------------------
+   IMAGES
+------------------------------------------------------- */
+
+.image {
+	position: relative;
+}
+.image img {
+	height: auto; 
+	max-width: 100%;
+}
+.image .title {
+	left: 16px; 
+	bottom: 8px; 
+	color: rgb(255, 255, 255); 
+	font-size: 20px; 
+	position: absolute;
+}
+
+
+/* ----------------------------------------------------
+ FORM ELEMENTS
+------------------------------------------------------- */
+
+.input {
+	border-width: medium medium 1px; 
+	border-style: none none solid; 
+	border-color: currentColor currentColor rgb(128, 128, 128); 
+	padding: 10px; 
+	display: block;
+}
+.textarea {
+	border-width: medium medium 1px; 
+	border-style: none none solid; 
+	border-color: currentColor currentColor rgb(128, 128, 128); 
+	padding: 10px; 
+	display: block;
+}
+.label {
+	left: 0px; 
+	top: 0px; 
+	color: rgb(0, 150, 136); 
+	position: absolute; 
+	transition: 0.2s ease all; 
+	-webkit-transition: 0.2s ease all; 
+	-moz-transition: 0.2s ease all;
+}
+
+.striped tbody tr:nth-child(2n) {
+	background-color: rgb(242, 242, 242);
+}
+.table-all tr:nth-child(2n+1) {
+	background-color: rgb(255, 255, 255);
+}
+.table-all tr:nth-child(2n) {
+	background-color: rgb(242, 242, 242);
+}
+.hoverable tbody tr {
+	transition: background-color .25s ease;
+}
+.hoverable tbody tr:hover {
+	background-color: rgb(242, 242, 242);
+}
+.centered tr th {
+	text-align: center;
+}
+.centered tr td {
+	text-align: center;
+}
+.table td {
+	padding: 6px 8px; 
+	text-align: left; 
+	vertical-align: top; 
+	display: table-cell;
+}
+.table th {
+	padding: 6px 8px; 
+	text-align: left; 
+	vertical-align: top; 
+	display: table-cell;
+}
+
+/* ----------------------------------------------------
+   BUTTON CONFIGURATION
+------------------------------------------------------- */
+
+.btn {
+	padding: 6px 16px; 
+	outline: 0px; 
+	border: currentColor; 
+	text-align: center; 
+	color: rgb(255, 255, 255); 
+	overflow: hidden; 
+	text-decoration: none !important; 
+	vertical-align: middle; 
+	display: inline-block; 
+	white-space: nowrap; 
+	cursor: pointer; 
+	background-color: rgb(0,0,0); 
+	transition: 1.0s linear;
+}
+.btn:hover {
+	color: rgb(138, 192, 007);
+	background-color: rgb(0,0,0);
+	box-shadow: 0px 10px 20px 0px rgba(138,192,007,0.4), 0px 8px 24px 0px rgba(138,192,007,0.24);
+}
+.btn-info {
+	border-color: rgb(70, 184, 218); 
+	color: rgb(255, 255, 255); 
+	background-color: rgb(91,192,222);
+	transition: 1.0s linear;
+}
+.btn-info:hover {
+	border-color: rgb(91, 192, 222); 
+	color: rgb(255, 255, 255); 
+	background-color: rgb(91, 192, 222);
+	box-shadow: 0px 12px 24px 0px rgba(91,192,222,0.55), 0px 14px 38px 0px rgba(91,192,222,0.34) !important;
+}
+.disabled.btn {
+	color: rgb(159, 159, 159); 
+	cursor: not-allowed; 
+	box-shadow: none; 
+	background-color: rgb(223, 223, 223);
+}
+.disabled.btn-floating {
+	color: rgb(159, 159, 159); 
+	cursor: not-allowed; 
+	box-shadow: none; 
+	background-color: rgb(223, 223, 223);
+}
+:disabled.btn {
+	color: rgb(159, 159, 159); 
+	cursor: not-allowed; 
+	box-shadow: none; 
+	background-color: rgb(223, 223, 223);
+}
+:disabled.btn-floating {
+	color: rgb(159, 159, 159); 
+	cursor: not-allowed; 
+	box-shadow: none; 
+	background-color: rgb(223, 223, 223);
+}
+.disabled.btn-floating-large {
+	color: rgb(159, 159, 159); 
+	cursor: not-allowed; 
+	box-shadow: none; 
+	background-color: rgb(223, 223, 223);
+}
+:disabled.btn-floating-large {
+	color: rgb(159, 159, 159); 
+	cursor: not-allowed; 
+	box-shadow: none; 
+	background-color: rgb(223, 223, 223);
+}
+.disabled.btn * {
+	pointer-events: none;
+}
+.disabled.btn-floating * {
+	pointer-events: none;
+}
+:disabled.btn * {
+	pointer-events: none;
+}
+:disabled.btn-floating * {
+	pointer-events: none;
+}
+.disabled.btn:hover {
+	color: rgb(159, 159, 159); 
+	background-color: rgb(223, 223, 223);
+	box-shadow: none;
+}
+:disabled.btn:hover {
+	color: rgb(159, 159, 159); 
+	background-color: rgb(223, 223, 223);
+}
+.disabled.btn-floating:hover {
+	color: rgb(159, 159, 159); 
+	background-color: rgb(223, 223, 223);
+}
+:disabled.btn-floating:hover {
+	color: rgb(159, 159, 159); 
+	background-color: rgb(223, 223, 223);
+}
+.disabled.btn-floating-large:hover {
+	color: rgb(159, 159, 159); 
+	background-color: rgb(223, 223, 223);
+}
+:disabled.btn-floating-large:hover {
+	color: rgb(159, 159, 159); 
+	background-color: rgb(223, 223, 223);
+}
+.btn-floating:hover {
+	box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.4), 0px 8px 24px 0px rgba(0,0,0,0.24);
+}
+.btn-floating-large:hover {
+	box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.4), 0px 8px 24px 0px rgba(0,0,0,0.24);
+}
+.btn-floating {
+	padding: 0px; 
+	border-radius: 50%; 
+	text-align: center; 
+	color: rgb(255, 255, 255); 
+	overflow: hidden; 
+	font-size: 24px; 
+	display: inline-block; 
+	position: relative; 
+	z-index: 1; 
+	cursor: pointer; 
+	background-color: rgb(0, 0, 0); 
+	transition: .3s;
+}
+.btn-floating-large {
+	padding: 0px; 
+	border-radius: 50%; 
+	text-align: center; 
+	color: rgb(255, 255, 255); 
+	overflow: hidden; 
+	font-size: 24px; 
+	display: inline-block; 
+	position: relative; 
+	z-index: 1; 
+	cursor: pointer; 
+	background-color: rgb(0, 0, 0); 
+	transition: .3s;
+}
+
+.btn-floating {
+	width: 40px; 
+	height: 40px; 
+	line-height: 40px;
+}
+.btn-floating-large {
+	width: 56px; 
+	height: 56px; 
+	line-height: 56px;
+}
+
+/* ----------------------------------------------------
+   SPECIALTY ICONS
+------------------------------------------------------- */
+
+.ripple.btn {
+	position: relative;
+}
+.ripple::after {
+	background: rgb(144, 238, 144); 
+	padding-top: 300%; 
+	padding-left: 350%; 
+	margin-top: -120%; 
+	margin-left: -20px !important; 
+	display: block; 
+	position: absolute; 
+	content: ""; 
+	opacity: 0; 
+	transition: all 0.8s;
+}
+.ripple:active::after {
+	margin: 0px; 
+	padding: 0px; 
+	opacity: 1; 
+	transition: 0s;
+}
+.badge {
+	text-align: center; 
+	padding-right: 8px; 
+	padding-left: 8px;
+	color: rgb(228, 77, 38);
+	font-weight: bold; 
+	display: inline-block;
+}
+.tag {
+	text-align: center; 
+	padding-right: 8px; 
+	padding-left: 8px; 
+	font-weight: bold; 
+	display: inline-block;
+}
+.html5badge {
+	background-position: right; 
+	background-image: url("/images/html5_badge20.png");/*inoperable*/
+	background-repeat: no-repeat;
+}
+
+ul.ul {
+	margin: 0px; 
+	padding: 0px; 
+	list-style-type: none;
+}
+ul.ul li {
+	padding: 6px 16px; 
+	border-bottom-color: rgb(224, 224, 224); 
+	border-bottom-width: 1px; 
+	border-bottom-style: solid;
+}
+ul.ul li:last-child {
+	border-bottom-color: currentColor; 
+	border-bottom-width: medium; 
+	border-bottom-style: none;
+}
+.image {
+	position: relative;
+}
+.image img {
+	height: auto; 
+	max-width: 100%;
+}
+.image .title {
+	left: 16px; 
+	bottom: 8px; 
+	max-width: 100%;
+}
+.img-responsive {
+	height: auto; max-width: 100%;
+}
+.table-responsive {
+	overflow-x: auto;
+}
+.tooltip .text {
+	display: none;
+}
+.tooltip:hover .text {
+	display: inline-block;
+}
+.tab div {
+	display: none;
+}
+.tab div:target {
+	display: block;
+}
+.modal { 
+	left: 0px; 
+	top: 0px; 
+	width: 100%; 
+	height: 100%; 
+	overflow: auto; 
+	display: none; 
+	position: fixed; 
+	background-color: rgba(0, 0, 0, 0.4);
+}
+:target.modal {
+	overflow: scroll; 
+	display: table; 
+	position: absolute; 
+	z-index: 1;
+}
+.modal-dialog {
+	vertical-align: middle; 
+	display: table-cell;
+}
+.modal-dialog .modal-content {
+	margin: auto; 
+	padding: 0px; 
+	outline: 0px; 
+	border: 1px solid rgb(85, 85, 85); 
+	width: 600px; 
+	position: relative; 
+	background-color: rgb(243, 243, 243);
+}
+.group {
+	margin-top: 30px; 
+	margin-bottom: 30px; 
+	position: relative;
+}
+.input {
+	border-width: medium medium 1px; 
+	border-style: none none solid; 
+	border-color: currentColor currentColor rgb(128, 128, 128); 
+	padding: 10px; 
+	display: block;
+}
+.textarea {
+	border-width: medium medium 1px; 
+	border-style: none none solid; 
+	border-color: currentColor currentColor rgb(128, 128, 128); 
+	padding: 10px; 
+	display: block;
+}
+.label {
+	left: 0px; 
+	top: 0px; 
+	color: rgb(0, 150, 136); 
+	position: absolute; 
+	transition: 0.2s ease all; 
+	-webkit-transition: 0.2s ease all; 
+	-moz-transition: 0.2s ease all;
+}
+.select {
+	border-width: 1px; 
+	border-style: solid; 
+	border-color: transparent transparent rgb(0, 150, 136); 
+	padding: 4px 0px; 
+	color: rgb(0, 0, 0); 
+	font-size: 16px; 
+	background-color: transparent;
+}
+.select select:focus {
+	border: 1px solid rgb(0, 150, 136); color: rgb(0, 0, 0);
+}
+.select option[disabled] {
+	color: rgb(0, 150, 136);
+}
+.checkbox::before {
+	box-sizing: border-box;
+}
+.checkbox::after {
+	box-sizing: border-box;
+}
+.checkbox {
+	box-sizing: border-box;
+}
+.checkmark::before {
+	box-sizing: border-box;
+}
+.checkmark::after {
+	box-sizing: border-box;
+}
+.checkmark {
+	box-sizing: border-box;
+}
+.checkbox {
+	margin: 8px 0px; 
+	line-height: 24px; 
+	display: inline-block;
+}
+.checkbox input[type=checkbox] {
+	display: none;
+}
+.checkbox input[type=radio] {
+	display: none;
+}
+.checkbox input[type=checkbox]:checked + .checkmark::before {
+	background: rgb(0, 150, 136);
+}
+.checkbox input[type=checkbox]:checked + .checkmark::after {
+	opacity: 1;
+}
+.checkbox input[type=radio]:checked + .checkmark::before {
+	background: rgb(255, 255, 255);
+}
+.checkbox input[type=radio]:checked + .checkmark::after {
+	opacity: 1; 
+	background-color: rgb(0, 150, 136);
+}
+.checkmark::before {
+	border: 2px solid rgb(0, 150, 136); 
+	width: 24px; 
+	height: 24px; 
+	position: absolute; 
+	content: "";
+}
+.checkmark {
+	width: 24px; 
+	height: 24px; 
+	vertical-align: top; 
+	display: inline-block; 
+	position: relative; 
+	cursor: pointer;
+}
+.checkmark::after {
+	border-width: medium medium 4px 4px; 
+	border-style: none none solid solid; 
+	border-color: currentColor currentColor rgb(255, 255, 255) rgb(255, 255, 255); 
+	left: 6px; 
+	top: 7px; 
+	width: 14px; 
+	height: 8px; 
+	position: absolute; 
+	content: ""; 
+	-ms-transform: rotate(-45deg); 
+	-webkit-transform: rotate(-45deg); 
+	-moz-transform: rotate(-45deg); 
+	-o-transform: rotate(-45deg); 
+	transform: rotate(-45deg);
+}
+.checkbox input[type=radio] + .checkmark::before {
+	border-radius: 50%; 
+	background-color: rgb(255, 255, 255);
+}
+.checkbox input[type=radio] + .checkmark::after {
+	border-radius: 50%; 
+	border: 0px solid rgb(255, 255, 255); 
+	left: 6px; 
+	top: 6px; 
+	width: 12px; 
+	height: 12px; 
+	position: absolute; 
+	content: "";
+}
+.checkbox input[type=checkbox]:disabled + .checkmark {
+	cursor: default; 
+	opacity: 0.3;
+}
+.checkbox input[type=radio]:disabled + .checkmark {
+	cursor: default; 
+	opacity: 0.3;
+}
+.responsive {
+	overflow-x: auto;
+	height: auto; 
+	max-width: 100%;
+}
+.container::after {
+	clear: both; 
+	display: table; 
+	content: "";
+}
+.row::after {
+	clear: both; 
+	display: table; 
+	content: "";
+}
+.row-padding::after {
+	clear: both; 
+	display: table; 
+	content: "";
+}
+.topnav::after {
+	clear: both; 
+	display: table; 
+	content: "";
+}
+.clear::after {
+	clear: both; 
+	display: table; 
+	content: "";
+}
+.col {
+	width: 100%; 
+	float: left;
+}
+.half {
+	width: 100%; 
+	float: left;
+}
+.third {
+	width: 100%; 
+	float: left;
+}
+.twothird {
+	width: 100%; 
+	float: left;
+}
+.quarter {
+	width: 100%; 
+	float: left;
+}
+.s1.col {
+	width: 8.33%;
+}
+.s2.col {
+	width: 16.66%;
+}
+.s3.col {
+	width: 24.99%;
+}
+.s4.col {
+	width: 33.33%;
+}
+.s5.col {
+	width: 41.66%;
+}
+.s6.col {
+	width: 49.99%;
+}
+.s7.col {
+	width: 58.33%;
+}
+.s8.col {
+	width: 66.66%;
+}
+.s9.col {
+	width: 74.99%;
+}
+.s10.col {
+	width: 83.33%;
+}
+.s11.col {
+	width: 91.66%;
+}
+.s12.col {
+	width: 99.99%;
+}
+.half {
+	width: 99.99%;
+}
+.third {
+	width: 99.99%;
+}
+.twothird {
+	width: 99.99%;
+}
+.quarter {
+	width: 99.99%;
+}
+.m1.col {
+	width: 8.33%;
+}
+.m2.col {
+	width: 16.66%;
+}
+.m3.col {
+	width: 24.99%;
+}
+.quarter {
+	width: 24.99%;
+}
+.m4.col {
+	width: 33.33%;
+}
+.third {
+	width: 33.33%;
+}
+.m5.col {
+	width: 41.66%;
+}
+.m6.col {
+	width: 49.99%;
+}
+.half {
+	width: 49.99%;
+}
+.m7.col {
+	width: 58.33%;
+}
+.m8.col {
+	width: 66.66%;
+}
+.twothird {
+	width: 66.66%;
+}
+.m9.col {
+	width: 74.99%;
+}
+.m10.col {
+	width: 83.33%;
+}
+.m11.col {
+	width: 91.66%;
+}
+.m12.col {
+	width: 99.99%;
+}
+.l1.col {
+	width: 8.33%;
+}
+.l2.col {
+	width: 16.66%;
+}
+.l3.col {
+	width: 24.99%;
+}
+.quarter {
+	width: 24.99%;
+}
+.l4.col {
+	width: 33.33%;
+}
+.third {
+	width: 33.33%;
+}
+.l5.col {
+	width: 41.66%;
+}
+.l6.col {
+	width: 49.99%;
+}
+.half {
+	width: 49.99%;
+}
+.l7.col {
+	width: 58.33%;
+}
+.l8.col {
+	width: 66.66%;
+}
+.twothird {
+	width: 66.66%;
+}
+.l9.col {
+	width: 74.99%;
+}
+.l10.col {
+	width: 83.33%;
+}
+.l11.col {
+	width: 91.66%;
+}
+.l12.col {
+	width: 99.99%;
+}
+.content {
+	margin: auto; 
+	max-width: 980px;
+}
+.rest {
+	overflow: hidden;
+}
+.modal-dialog .modal-content {
+	margin: 50px 10px 10px; 
+	width: auto !important;
+}
+.modal-dialog .modal-content {
+	width: 500px;
+}
+.modal-dialog .modal-content {
+	width: 900px;
+}
+.topnav a:first-child {
+	padding: 0px 8px;
+}
+.topnav {
+	text-align: center;
+}
+.hide-small {
+	display: none !important;
+}
+.hide-medium {
+	display: none !important;
+}
+.hide-large {
+	display: none !important;
+}
+.top {
+	top: 0px; 
+	width: 100%; 
+	position: fixed; 
+	z-index: 1;
+}
+.left {
+	float: left !important;
+}
+.right {
+	float: right !important;
+}
+.hide {
+	display: none !important;
+}
+.show {
+	display: block !important;
+}
+.tiny {
+	font-size: 10px !important;
+}
+.small {
+	font-size: 12px !important;
+}
+.medium {
+	font-size: 15px !important;
+}
+.large {
+	font-size: 18px !important;
+}
+.xlarge {
+	font-size: 24px !important;
+}
+.xxlarge {
+	font-size: 36px !important;
+}
+.xxxlarge {
+	font-size: 48px !important;
+}
+.slim {
+	font-family: "Segoe UI",Arial,sans-serif !important;
+}
+.wide {
+	letter-spacing: 4px; 
+	font-family: "Segoe UI",Arial,sans-serif !important;
+}
+.stroke {
+	letter-spacing: 2px; 
+	font-family: "Courgette"; 
+	-webkit-text-stroke: 1px #000;
+}
+.jumbo {
+	font-size: 64px !important;
+}
+.left-align {
+	text-align: left !important;
+}
+.right-align {
+	text-align: right !important;
+}
+.center {
+	text-align: center !important;
+}
+.circle {
+	border-radius: 50% !important;
+}
+.border-0 {
+	border: 0px currentColor !important;
+}
+.border {
+	border: 1px solid rgb(204, 204, 204) !important;
+}
+.border-top {
+	border-top-color: rgb(204, 204, 204) !important; 
+	border-top-width: 1px !important; 
+	border-top-style: solid !important;
+}
+.border-bottom {
+	border-bottom-color: rgb(204, 204, 204) !important; 
+	border-bottom-width: 1px !important; 
+	border-bottom-style: solid !important;
+}
+.border-left {
+	border-left-color: rgb(204, 204, 204) !important; 
+	border-left-width: 1px !important; 
+	border-left-style: solid !important;
+}
+.border-right {
+	border-right-color: rgb(204, 204, 204) !important; 
+	border-right-width: 1px !important; 
+	border-right-style: solid !important;
+}
+.margin-0 {
+	margin: 0px !important;
+}
+.margin-2 {
+	margin: 2px !important;
+}
+.margin-4 {
+	margin: 4px !important;
+}
+.margin-8 {
+	margin: 8px !important;
+}
+.margin-12 {
+	margin: 12px !important;
+}
+.margin-16 {
+	margin: 16px !important;
+}
+.margin-24 {
+	margin: 24px !important;
+}
+.margin-32 {
+	margin: 32px !important;
+}
+.margin-64 {
+	margin: 64px !important;
+}
+.margin {
+	margin: 16px !important;
+}
+.margin-top {
+	margin-top: 16px !important;
+}
+.margin-bottom {
+	margin-bottom: 16px !important;
+}
+.margin-left {
+	margin-left: 16px !important;
+}
+.margin-right {
+	margin-right: 16px !important;
+}
+.padding-tiny {
+	padding: 2px 4px !important;
+}
+.padding-small {
+	padding: 4px 8px !important;
+}
+.padding-medium {
+	padding: 8px 16px !important;
+}
+.padding {
+	padding: 8px 16px !important;
+}
+.padding-large {
+	padding: 12px 24px !important;
+}
+.padding-xlarge {
+	padding: 16px 32px !important;
+}
+.padding-xxlarge {
+	padding: 24px 48px !important;
+}
+.padding-jumbo {
+	padding: 32px 64px !important;
+}
+.padding-0 {
+	padding: 0px !important;
+}
+.padding-4 {
+	padding-top: 4px !important; 
+	padding-bottom: 4px !important;
+}
+.padding-8 {
+	padding-top: 8px !important; 
+	padding-bottom: 8px !important;
+}
+.padding-16 {
+	padding-top: 16px !important; 
+	padding-bottom: 16px !important;
+}
+.padding-24 {
+	padding-top: 24px !important; 
+	padding-bottom: 24px !important;
+}
+.padding-32 {
+	padding-top: 32px !important; 
+	padding-bottom: 32px !important;
+}
+.padding-48 {
+	padding-top: 48px !important; 
+	padding-bottom: 48px !important;
+}
+.padding-64 {
+	padding-top: 64px !important; 
+	padding-bottom: 64px !important;
+}
+.padding-top {
+	padding-top: 8px !important;
+}
+.padding-bottom {
+	padding-bottom: 8px !important;
+}
+.padding-left {
+	padding-left: 16px !important;
+}
+.padding-right {
+	padding-right: 16px !important;
+}
+.row-padding {
+	padding: 1px 8px;
+}
+.row-padding .half {
+	padding: 1px 8px;
+}
+.row-padding .third {
+	padding: 1px 8px;
+}
+.row-padding .twothird {
+	padding: 1px 8px;
+}
+.row-padding .quarter {
+	padding: 1px 8px;
+}
+.row-padding .col {
+	padding: 1px 8px;
+}
+.spin {
+	animation: spin 2s infinite linear; 
+	-webkit-animation: spin 2s infinite linear;
+}
+.container {
+	padding: 1px 16px;
+}
+.example {
+	padding: 1px 16px; 
+	background-color: rgb(241, 241, 241);
+}
+.section {
+	margin-top: 16px; 
+	margin-bottom: 16px;
+}
+
+/* Span Colors to identify tags*/
+.highJS{
+	color: green;
+}
+.highELE {
+	color: crimson;
+}
+.highATT  {
+	color: brown;
+}
+.highVAL {
+	color: mediumblue;
+}
+.highGLB {
+	color: rgb(204, 153, 0);
+}
+.highLT {
+	color: blue;
+}
+.highGT {
+	color: blue;
+}
+span.marked {
+	color: rgb(232, 0, 0); 
+	background-color: transparent;
+	font-weight: bold;
+}
+span.deprecated {
+	color: rgb(232, 0, 0); 
+	background-color: transparent;
+	font-weight: bold;
+}
+p.intro {
+	font-size: 16px;
+}
+div.tutintro {
+	width: auto; 
+	min-height: 132px;
+}
+div.tutintro img {
+	margin-right: 20px; 
+	margin-bottom: 10px; 
+	float: left;
+}
+div.tutintro p {
+	font-size: 16px; 
+	margin-top: 0px;
+}
+code {
+	padding: 1px 4px; 
+	color: crimson; 
+	font-size: 105%; 
+	background-color: rgb(241, 241, 241);
+}
+.code {
+	padding: 8px 12px;
+	margin: 20px 0px;
+	width: auto; 
+	line-height: 1.4; 
+	font-family: Consolas,"courier new"; 
+	font-size: 16px; 
+	border-left-color: rgb(138, 192, 007); 
+	border-left-width: 4px; 
+	border-left-style: solid; 
+	word-wrap: break-word; 
+	background-color: rgb(255, 255, 255);
+}
+.example {
+	margin: 20px 0px;
+}
+.reference {
+	margin: 20px 0px;
+}
+
+/*Card Settings*/
+.card {
+	border: 1px solid rgb(204, 204, 204);
+}
+.card-2 {
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.16), 0px 2px 10px 0px rgba(0,0,0,0.12) !important;
+}
+.example {
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.16), 0px 2px 10px 0px rgba(0,0,0,0.12) !important;
+}
+.card-4 {
+	box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2), 0px 6px 20px 0px rgba(0,0,0,0.19) !important;
+}
+.card-8 {
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2), 0px 6px 20px 0px rgba(0,0,0,0.19) !important;
+}
+.card-12 {
+	box-shadow: 0px 12px 16px 0px rgba(0,0,0,0.24), 0px 17px 50px 0px rgba(0,0,0,0.19) !important;
+}
+.card-16 {
+	box-shadow: 0px 16px 24px 0px rgba(0,0,0,0.22), 0px 25px 55px 0px rgba(0,0,0,0.21) !important;
+}
+.card-24 {
+	box-shadow: 0px 24px 24px 0px rgba(0,0,0,0.2), 0px 40px 77px 0px rgba(0,0,0,0.22) !important;
+}
+
+/*Animation Settings*/
+.animate-opacity {
+	-webkit-animation-name: opac; 
+	-webkit-animation-duration: 4s; 
+	animation-name: opac; 
+	animation-duration: 4s;
+}
+.animate-top {
+	position: relative; 
+	-webkit-animation-name: animatetop; 
+	-webkit-animation-duration: 0.4s; 
+	animation-name: animatetop; 
+	animation-duration: 0.4s;
+}
+.animate-left {
+	position: relative; 
+	-webkit-animation-name: animateleft; 
+	-webkit-animation-duration: 0.4s; 
+	animation-name: animateleft; 
+	animation-duration: 0.4s;
+}
+.animate-right {
+	position: relative; 
+	-webkit-animation-name: animateright; 
+	-webkit-animation-duration: 0.4s; 
+	animation-name: animateright; 
+	animation-duration: 0.4s;
+}
+.animate-bottom {
+	position: relative; 
+	-webkit-animation-name: animatebottom; 
+	-webkit-animation-duration: 0.4s; 
+	animation-name: animatebottom; 
+	animation-duration: 0.4s;
+}
+
+/* Misc Text and Background Colors*/
+.text-amber {
+	color: rgb(255, 193, 7) !important;
+}
+.amber {
+	color: rgb(0, 0, 0) !important; 
+	background-color: rgb(255, 193, 7) !important;
+}
+.text-blue {
+	color: rgb(33, 150, 243) !important;
+}
+.blue {
+	color: rgb(255, 255, 255) !important; 
+	background-color: rgb(33, 150, 243) !important;
+}
+.text-light-blue {
+	color: rgb(135, 206, 235) !important;
+}
+.light-blue {
+	color: rgb(0, 0, 0) !important; 
+	background-color: rgb(135, 206, 235) !important;
+}
+.text-brown {
+	color: rgb(121, 85, 72) !important;
+}
+.brown {
+	color: rgb(255, 255, 255) !important; 
+	background-color: rgb(121, 85, 72) !important;
+}
+.text-cyan {
+	color: rgb(0, 188, 212) !important;
+}
+.cyan {
+	color: rgb(0, 0, 0) !important; 
+	background-color: rgb(0, 188, 212) !important;
+}
+.text-blue-grey {
+	color: rgb(96, 125, 139) !important;
+}
+.blue-grey {
+	color: rgb(255, 255, 255) !important; 
+	background-color: rgb(96, 125, 139) !important;
+}
+.text-green {
+	color: rgb(76, 175, 80) !important;
+}
+.green {
+	color: rgb(255, 255, 255) !important; 
+	background-color: rgb(76, 175, 80) !important;
+}
+.text-light-green {
+	color: rgb(139, 195, 74) !important;
+}
+.light-green {
+	color: rgb(0, 0, 0) !important; 
+	background-color: rgb(139, 195, 74) !important;
+}
+.text-indigo {
+	color: rgb(63, 81, 181) !important;
+}
+.indigo {
+	color: rgb(255, 255, 255) !important; 
+	background-color: rgb(63, 81, 181) !important;
+}
+.text-khaki {
+	color: rgb(180, 170, 80) !important;
+}
+.khaki {
+	color: rgb(0, 0, 0) !important; 
+	background-color: rgb(240, 230, 140) !important;
+}
+.text-lime {
+	color: rgb(205, 220, 57) !important;
+}
+.lime {
+	color: rgb(0, 0, 0) !important; 
+	background-color: rgb(205, 220, 57) !important;
+}
+.text-orange {
+	color: rgb(255, 152, 0) !important;
+}
+.orange {
+	color: rgb(0, 0, 0) !important; 
+	background-color: rgb(255, 152, 0) !important;
+}
+.text-deep-orange {
+	color: rgb(255, 87, 34) !important;
+}
+.deep-orange {
+	color: rgb(255, 255, 255) !important; 
+	background-color: rgb(255, 87, 34) !important;
+}
+.text-pink {
+	color: rgb(233, 30, 99) !important;
+}
+.pink {
+	color: rgb(255, 255, 255) !important; 
+	background-color: rgb(233, 30, 99) !important;
+}
+.text-purple {
+	color: rgb(156, 39, 176) !important;
+}
+.purple {
+	color: rgb(255, 255, 255) !important; 
+	background-color: rgb(156, 39, 176) !important;
+}
+.text-deep-purple {
+	color: rgb(103, 58, 183) !important;
+}
+.deep-purple {
+	color: rgb(255, 255, 255) !important; 
+	background-color: rgb(103, 58, 183) !important;
+}
+.text-red {
+	color: rgb(244, 67, 54) !important;
+}
+.red {
+	color: rgb(255, 255, 255) !important; 
+	background-color: rgb(244, 67, 54) !important;
+}
+.text-teal {
+	color: rgb(0, 150, 136) !important;
+}
+.teal {
+	color: rgb(255, 255, 255) !important; 
+	background-color: rgb(0, 150, 136) !important;
+}
+.text-yellow {
+	color: rgb(210, 190, 14) !important;
+}
+.yellow {
+	color: rgb(0, 0, 0) !important; 
+	background-color: rgb(255, 235, 59) !important;
+}
+.text-white {
+	color: rgb(255, 255, 255) !important;
+}
+.white {
+	color: rgb(0, 0, 0) !important; 
+	background-color: rgb(255, 255, 255) !important;
+}
+.text-black {
+	color: rgb(0, 0, 0) !important;
+}
+.black {
+	color: rgb(255, 255, 255) !important; 
+	background-color: rgb(0, 0, 0) !important;
+}
+.text-grey {
+	color: rgb(117, 117, 117) !important;
+}
+.grey {
+	color: rgb(0, 0, 0) !important; 
+	background-color: rgb(158, 158, 158) !important;
+}
+.text-light-grey {
+	color: rgb(241, 241, 241) !important;
+}
+.light-grey {
+	color: rgb(0, 0, 0); 
+	background-color: rgb(241, 241, 241) !important;
+}
+.text-dark-grey {
+	color: rgb(58, 58, 58) !important;
+}
+.dark-grey {
+	color: white; 
+	background-color: rgb(97, 97, 97) !important;
+}
+.text-white-opacity {
+	color: rgba(255, 255, 255, 0.65) !important;
+}
+.text-black-opacity {
+	color: rgba(0, 0, 0, 0.6) !important;
+}
+#footer	{
+	width: 100%;
+	height: 35px;
+	margin-top: 10px;
+	padding-top:15px;
+	z-index: 10;
+	text-align: center;
+	color: rgb(138, 192, 007); 
+	font-size: .8em;
+}
