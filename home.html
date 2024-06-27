@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>GTGTV | Home</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="images/style.css" title="style.css"
+media="">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+</head>
+
+
+<div id="header">
+<img class="img-responsive" alt="Logo" src="images/hdr a.png" width="100%">
+<div class="slogan">
+<div class="topnavmain">
+<a href="about.html">About</a>
+<a href="">Watch Live</a>
+<a href="program.html">Programming</a>
+<a href="services.html">Services</a>
+<a href="community.html">Community</a>
+<a href="support.html">Support Us</a>
+<a href="contact.html">Contact Us</a>
+<a href="javascript:void(0);" onclick="openOffcanvas()"> &#9776;</a>
+</div>
+<div style="display: inline-block; margin-bottom: -30px; margin-right: 20px;" onclick="openNav()" title="click on this icon to access the Menu">
+<div class="bar1"></div>
+<div class="bar2"></div>
+<div class="bar3"></div></div></div>
+</div>
+
+
+<br>
+
+<!--Main HTML Section-->
+
+<div class="wrapper">
+
+<h1><a name=""></a>&nbsp;</h1>
+
+<div id="myCanvasNav" class="overlay3" onclick="closeOffcanvas()"></div>
+<div id="myOffcanvas" class="offcanvas"><a class="closeOffcanvas" 
+onclick="closeOffcanvas()" href="javascript:void(0)">×</a>
+<a href="home.html">Home</a>
+<a href="about.html">About</a>
+<a href="">Watch Live</a>
+<a href="program.html">Programming</a>
+<a href="services.html">Services</a>
+<a href="community.html">Community</a>
+<a href="support.html">Support Us</a>
+<a href="contact.html">Contact Us</a>
+</div>
+
+
+
+<script>
+
+function openOffcanvas() {
+    document.getElementById("myOffcanvas").style.width = "250px";
+    document.getElementById("mainContent").style.marginLeft = "250px";
+}
+function closeOffcanvas() {
+    document.getElementById("myOffcanvas").style.width = "0%";
+    document.getElementById("mainContent").style.marginLeft= "0%";
+    document.body.style.backgroundColor = "white";
+    document.getElementById("myCanvasNav").style.width = "0%";
+    document.getElementById("myCanvasNav").style.opacity = "0"; 
+}
+</script>
+<body>
+<br>
+<h1>Welcome to Glory To God TV</h1>
+<br>
+<h2>Glory To God TV (GTGTV) is a 24-hour 7 days a week Christian Television Broadcasting Network.</h2>
+
+<p>We are currently broadcasting to over 1,000,000 potential viewers through Georgia and parts of Alabama and we are rapidly expanding to other markets continuously as we strive toward a worldwide vision.  We invite churches, business and individuals to take advantage of the variety of services and opportunities we offer.</p>
+<br>
+<hr>
+<br>
+
+<div id="footer">
+<script LANGUAGE="Javascript">
+document.write('Current Page  ' + document.title + '</b><br>');
+document.write('MCCS, MMXXlll<br> ');
+// end MCCS footer -->
+</script>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>
